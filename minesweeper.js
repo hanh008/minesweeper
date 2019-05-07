@@ -5,56 +5,74 @@ var board = {
   cells: [{
       row: 0,
       col: 0,
-      isMine: false,
-      hidden: true
+      isMine: true,
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     }, 
     { 
       row: 0,
       col: 1,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     }, 
     {
       row: 0,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     }, 
     {
       row: 1,
       col: 0,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     },
     {
       row: 1,
       col: 1,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     },
     {
       row: 1,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     },
     {
       row: 2,
       col: 0,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     },
     {
       row: 2,
       col: 1,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     },
     {
       row: 2,
       col: 2,
       isMine: false,
-      hidden: true
+      isMarked: false,
+      hidden: true,
+      surroundingMines: countSurroundingMines
     }
   ]
 }
@@ -62,7 +80,7 @@ var board = {
 function startGame (countSurroundingMines) {
   // Don't remove this function call: it makes the game work!
   for (var i = 0; i < board.cells.length; i++) {
-    surroundingMines = countSurroundingMines;
+    countSurroundingMines = board.cells[i];
   }
   lib.initBoard()
 }
