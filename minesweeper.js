@@ -2,73 +2,28 @@ document.addEventListener('DOMContentLoaded', startGame)
 
 // Define your `board` object here!
 var board = {
-  cells: [{
-      row: 0,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }, 
-    { 
-      row: 0,
-      col: 1,
-      isMine: true,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 0,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    }, 
-    {
-      row: 1,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 1,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 0,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 1,
-      isMine: false,
-      isMarked: false,
-      hidden: true
-    },
-    {
-      row: 2,
-      col: 2,
-      isMine: false,
-      isMarked: false,
-      hidden: true
+  cells: []
+}
+
+function createBoard (matrix) {
+  for (var i = 0; i < matrix; i++) {
+    for (var l = 0; l < matrix; l++) {
+      board.cells.push ({
+        row: i,
+        col: l,
+        isMine: Boolean(Math.round(Math.random() >= 0.8)),
+        isMarked: false,
+        hidden: true
+      })
     }
-  ]
+  }
+
 }
 
 function startGame () {
+
+  createBoard (6);
+
   // Don't remove this function call: it makes the game work!
   for (var i = 0; i < board.cells.length; i++) {
     board.cells[i].surroundingMines = countSurroundingMines(board.cells[i])
